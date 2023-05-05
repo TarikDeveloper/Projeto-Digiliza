@@ -1,3 +1,2 @@
 # Projeto-Digiliza
 
-# Projeto-Digiliza
