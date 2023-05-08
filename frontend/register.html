@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: none;
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    button[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #3e8e41;
+    }
+</style>
+  <script>
+    function checkPasswordsMatch() {
+      var password = document.getElementById("password");
+      var confirm_password = document.getElementById("confirm_password");
+      if (password.value != confirm_password.value) {
+        confirm_password.setCustomValidity("As senhas devem ser iguais");
+      } else {
+        confirm_password.setCustomValidity("");
+      }
+    }
+  </script>
+</head>
+<body>
+    <h1>Registro</h1>
+    <form action="/users/register" method="post" onsubmit="return validateForm()">
+      <label for="name">Nome:</label>
+      <input type="text" name="name" id="name" required>
+      <label for="email">E-mail:</label>
+      <input type="email" name="email" id="email" required>
+      <label for="password">Senha:</label>
+      <input type="password" name="password" id="password" required>
+      <label for="confirm_password">Confirme a senha:</label>
+      <input type="password" name="confirm_password" id="confirm_password" required>
+      <button type="submit">Registrar</button>
+    </form>
+    <script>
+      function validateForm() {
+        var password = document.getElementById("password").value;
+        var confirm_password = document.getElementById("confirm_password").value;
+        if (password != confirm_password) {
+          alert("As senhas não coincidem!");
+          return false;
+        }
+      }
+    </script>
+  </body>
+  </html>
+    
